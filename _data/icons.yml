@@ -1,0 +1,16 @@
+- name: LinkedIn
+  url: https://ca.linkedin.com/in/davidmfjiang
+  new_page: true
+  icon: fab fa-linkedin
+- name: GitHub
+  url: https://github.com/jiangmf
+  new_page: true
+  icon: fab fa-github
+- name: Stack Overflow
+  url: https://stackoverflow.com/users/2829209/iceandele
+  new_page: true
+  icon: fab fa-stack-overflow
+- name: Email
+  url: mailto:nisja123@gmail.com
+  new_page: false
+  icon: far fa-envelope

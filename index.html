@@ -1,0 +1,143 @@
+---
+title: David Jiang
+tagline: Musician, Photographer, Developer.
+---
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>{{ page.title }}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+
+<body>
+    <header id="header" class="alt">
+        <a href="#banner" class="logo">
+            <img src="/assets/images/logo.png" alt="">
+            <h1>{{ page.title }}</h1>
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#experience">Experience</a>
+                </li>
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section id="banner">
+        <div class="bg boxshadow" id="bg"></div>
+        <div class="inner">
+            <h2>{{ page.title }}</h2>
+            <p>{{ page.tagline }}</p>
+            <p class="icons">
+                {% for item in site.data.icons %}
+                    <a href="{{ item.url }}" {% if item.new_page %}target="_blank"{% endif %}><i class="{{ item.icon }}"></i></a>
+                {% endfor %}
+            </p>
+        </div>
+    </section>
+    <section id="wrapper">
+        <section class="about boxshadow">
+            <a class="anchor" id="about"></a>
+            <div class="inner">
+                <h2>Hey!</h2>
+                <div class="content">
+                    <section class="tiles tiles-horizontal">
+                        <article class="tile">
+                            <a href="/assets/images/profile.jpg" class="image profile-image"><img src="/assets/images/profile-t.jpg" alt="" /></a>
+                            <div class="tile-content">
+                                <p>David here,</p>
+                                <p>I am a full stack developer residing in the Toronto/Hamilton area in Ontario, Canada. Currently, I am in my final year in the computer science program at McMaster University. I have 3+ years of professional working experience both at a successful start up and a large corporation.</p>
+                                <p>I specialize in full stack web development. (Python/Django, HTML, CSS, JavaScript). But am also interested in software and game development as well as UX and visual design. You can check out some of my projects
+                                    <a href="#projects">here</a>.</p>
+                                <p>Aside from development, I love to spend my time playing table tennis, traveling, taking photos and creating music.</p>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <section class="experience boxshadow">
+            <a class="anchor" id="experience"></a>
+            <div class="inner">
+                <h2>Experience</h2>
+                <div class="content">
+                    <section id=timeline>
+                        <div class="card-wrapper">
+                        {% assign experiences = site.experience | sort:"order" | reverse %}
+                        {% for experience in experiences %}
+                            <div class="card card--step{{ forloop.index }}">
+                                <div class="head">
+                                    <div class="logo-box"><img src="{{ experience.image }}" alt="" /></div>
+                                    <h2><span class="small"><strong>{{ experience.company }}</strong></span> {{ experience.role }}</h2>
+                                    <div class="date">
+                                        <div class="from">{{ experience.from }} -</div>
+                                        <div class="to">{{ experience.to }}</div>
+                                    </div>
+                                </div>
+                                <div class="body">
+                                    {{ experience.content | markdownify }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <section class="projects">
+            <a class="anchor" id="projects"></a>
+            <div class="inner">
+                <h2>Projects</h2>
+                <div class="content">
+                    <section class="tiles tiles-vertical">
+                        {% assign projects = site.projects | sort:"order" %}
+                        {% for project in projects %}
+                        <article class="tile">
+                            <a href="{{ project.ext_url }}" target="_blank" class="image"><img src="{{ project.image }}" alt=""></a>
+                            <div class="tile-content">
+                                <h3>
+                                    <a href="{{ project.url }}" target="_blank">{{ project.title }}</a>
+                                </h3>
+                                <p>{{ project.content | markdownify }}</p>
+                                <div class="tags">
+                                    {% for tag in project.tags %}
+                                        <span class="tag">{{ tag }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section id="footer">
+        <div class="inner">
+            <span>Copyright &copy; {{ 'now' | date: "%Y" }} David Jiang. All rights reserved.</span>
+        </div>
+    </section>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-101960403-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</body>
+
+</html>
