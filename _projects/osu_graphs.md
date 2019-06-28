@@ -2,7 +2,7 @@
 title: osu!graphs
 image: /assets/images/osu-graphs.jpg
 ext_url: https://github.com/jiangmf/osugraphs
-order: 2
+order: 4
 tags:
     - Web
     - Django

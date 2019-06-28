@@ -2,7 +2,7 @@
 title: Touhou 1cc Tracker
 image: /assets/images/1cc.jpg
 ext_url: https://ele.moe/1cc/
-order: 1
+order: 2
 tags:
     - Web
     - Django
