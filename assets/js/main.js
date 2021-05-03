@@ -14,10 +14,11 @@ $(function() {
             "#banner .inner h2" : 0,
             "#banner .inner p"  : 200,
             "#banner .inner .fa-linkedin"  : 400,
-            "#banner .inner .fa-github"  : 600,
-            "#banner .inner .fa-stack-overflow"  : 800,
-            "#banner .inner .fa-envelope"  : 1000,
-            ".about h2"  : 1400,
+            "#banner .inner .fa-github"  : 500,
+            "#banner .inner .fa-stack-overflow"  : 600,
+            "#banner .inner .fa-dev"  : 700,
+            "#banner .inner .fa-envelope"  : 800,
+            ".about h2"  : 1200,
         }
         
         for (var k in appear){
@@ -27,7 +28,15 @@ $(function() {
         }
     }, 0);
 
-
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+    
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 
     $('#banner').scrollex({
         bottom: '70%',

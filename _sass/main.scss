@@ -335,23 +335,23 @@ a {
 }
 
 #timeline {
-  .card-wrapper {
-    position: relative;
-    margin: auto;
-    &::after {
-      z-index: 1;
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      border-left: 1px dashed rgba(191, 191, 191, 0.4);
-    }
-  }
+//   .card-wrapper {
+//     position: relative;
+//     margin: auto;
+//     &::after {
+//       z-index: 1;
+//       content: "";
+//       position: absolute;
+//       top: 0;
+//       bottom: 0;
+//       left: 50%;
+//       border-left: 1px dashed rgba(191, 191, 191, 0.4);
+//     }
+//   }
   .card {
     position: relative;
     display: block;
-    margin: 10px auto 80px;
+    margin: 10px auto 40px;
     z-index: 2;
     .head {
       position: relative;
@@ -418,76 +418,19 @@ a {
 }
 
 @media (min-width: 1060px) {
-  #timeline .card-wrapper {
-    display: flex;
-    flex-flow: column wrap;
-    width: 100%;
-    height: 840px;
-    margin: 0 auto;
+  #timeline .card-wrapper{
+    position:relative;
+    &:before {
+      border-left: 1px dashed #E9E9E9;
+      content: '';
+      height:100%;
+      position:absolute;
+      left: 210px;
+    }
   }
-}
 
-/* Center Line */
-
-@media (min-width: 1060px) {
   #timeline .card {
-    max-width: 450px;
-    margin: 10px auto 80px;
-    &:nth-child(odd) {
-      margin-right: 45px;
-      .head {
-        &::after {
-          border-left-width: 15px;
-          border-left-style: solid;
-          left: 100%;
-        }
-        &::before {
-          left: 491.5px;
-        }
-      }
-    }
-    &:nth-child(even) {
-      margin-left: 45px;
-      .head {
-        &::after {
-          border-right-width: 15px;
-          border-right-style: solid;
-          right: 100%;
-        }
-        &::before {
-          right: 489.5px;
-        }
-      }
-    }
-    &:nth-child(2) {
-      margin-top: 180px;
-    }
-  }
-}
-
-.card {
-  &:nth-child(1) {
-    order: 1;
-  }
-  &:nth-child(2) {
-    order: 4;
-  }
-  &:nth-child(3) {
-    order: 2;
-  }
-  &:nth-child(4) {
-    order: 5;
-  }
-  &:nth-child(5) {
-    order: 3;
-  }
-  &:nth-child(6) {
-    order: 6;
-  }
-}
-
-@media (min-width: 1060px) {
-  #timeline .card {
+    margin-left: 250px;
     &:nth-child(odd) .head::after, &:nth-child(even) .head::after {
       position: absolute;
       content: "";
@@ -497,13 +440,119 @@ a {
       border-top: 15px solid transparent;
       border-bottom: 15px solid transparent;
     }
-    &:nth-child(odd) .head::before, &:nth-child(even) .head::before {
+    .head::before {
       position: absolute;
       content: "";
       width: 9px;
       height: 9px;
       background-color: #DEDFDF;
       transform: rotate(45deg);
+      left: -49.5px;
+      border: 5px solid #1A2B3C;
     }
+
+    .head .date {
+      display: inline;
+      margin: 0;
+      padding: 10px;
+      line-height: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: left;
+      background: rgba(0, 0, 0, 0.17);
+      position: absolute;
+      left: -250px;
+      width: 170px;
+      text-align: center;
+      div {
+        display: inline;
+      }
   }
+
+
+  }
+
+  
+
 }
+
+// /* Center Line */
+
+// @media (min-width: 1060px) {
+//   #timeline .card {
+//     max-width: 450px;
+//     margin: 10px auto 80px;
+//     &:nth-child(even) {
+//       margin-right: 45px;
+//       .head {
+//         &::after {
+//           border-left-width: 15px;
+//           border-left-style: solid;
+//           left: 100%;
+//         }
+//         &::before {
+//           left: 491.5px;
+//         }
+//       }
+//     }
+//     &:nth-child(odd) {
+//       margin-left: 45px;
+//       .head {
+//         &::after {
+//           border-right-width: 15px;
+//           border-right-style: solid;
+//           right: 100%;
+//         }
+//         &::before {
+//           right: 489.5px;
+//         }
+//       }
+//     }
+//     &:nth-child(2) {
+//       margin-top: 180px;
+//     }
+//   }
+// }
+
+// .card {
+//   &:nth-child(1) {
+//     order: 1;
+//   }
+//   &:nth-child(2) {
+//     order: 5;
+//   }
+//   &:nth-child(3) {
+//     order: 2;
+//   }
+//   &:nth-child(4) {
+//     order: 6;
+//   }
+//   &:nth-child(5) {
+//     order: 3;
+//   }
+//   &:nth-child(6) {
+//     order: 7;
+//   }
+// }
+
+// @media (min-width: 1060px) {
+//   #timeline .card {
+//     &:nth-child(odd) .head::after, &:nth-child(even) .head::after {
+//       position: absolute;
+//       content: "";
+//       width: 0;
+//       height: 0;
+//       border-color: #4C5C6A;
+//       border-top: 15px solid transparent;
+//       border-bottom: 15px solid transparent;
+//     }
+//     &:nth-child(odd) .head::before, &:nth-child(even) .head::before {
+//       position: absolute;
+//       content: "";
+//       width: 9px;
+//       height: 9px;
+//       background-color: #DEDFDF;
+//       transform: rotate(45deg);
+//     }
+//   }
+// }

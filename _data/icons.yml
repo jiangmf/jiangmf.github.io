@@ -10,6 +10,10 @@
   url: https://stackoverflow.com/users/2829209/iceandele
   new_page: true
   icon: fab fa-stack-overflow
+- name: Dev Community
+  url: https://dev.to/iceandele
+  new_page: true
+  icon: fab fa-dev
 - name: Email
   url: mailto:nisja123@gmail.com
   new_page: false
